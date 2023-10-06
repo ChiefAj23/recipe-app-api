@@ -9,6 +9,7 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 
+
 class UserManager(BaseUserManager):
     """Manager for user profiles."""
 
@@ -36,9 +37,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
-    is_active = models.BooleanField(default=True) # is_active is a user
-    is_staff = models.BooleanField(default=False) # is_staff is a superuser
+    is_active = models.BooleanField(default=True)  # is_active is a user
+    is_staff = models.BooleanField(default=False)  # is_staff is a superuser
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email' # this is the default, but we're being explicit
+    USERNAME_FIELD = 'email'  # this is the default, but we're being explicit
